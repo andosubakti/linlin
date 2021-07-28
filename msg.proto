@@ -1,0 +1,9 @@
+syntax ="proto3";
+option go_package = "./";
+package main;
+
+message Msg {
+    int32 id = 1;
+    string timestamp = 2;
+    int32 suhu = 3;
+}
