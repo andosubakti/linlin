@@ -34,9 +34,9 @@ batas_durasi = 200
 batas_suhu = 35
 
 database = msg_pb2.Msg()
-database.id = 1
-database.timestamp = "0"
-database.suhu = 25
+database.id = id
+database.timestamp = "tidak ada data"
+database.suhu = suhu
 
 
 while True:
@@ -44,15 +44,18 @@ while True:
    # print(database.SerializeToString()) #cek serialize protobuf
    # publish to the topic "alat/sensor/latest"
    client.publish("alat/sensor/latest", database.SerializeToString())
+#    print('durasi:', durasi) cek program
    time.sleep(2)
    database.id += 1
    durasi +=2
    database.suhu += 1
 
-   if suhu >= batas_suhu + 1:
-       suhu = 25
+   if database.suhu >= batas_suhu + 1:
+       database.suhu = 25
    if durasi >= batas_durasi: #penentuan batas waktu
        break
 
+client.disconnect()
+
 # Blocking call that processes network traffic, dispatches callbacks and handles reconnecting.
-client.loop_forever()
+# client.loop_forever()

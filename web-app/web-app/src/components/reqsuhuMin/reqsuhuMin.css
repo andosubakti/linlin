@@ -1,0 +1,19 @@
+.reqsuhuMin {
+  color: rgb(43, 45, 53);
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featuredSuhuLatestMin {
+  font-size: 40px;
+  font-weight: 600;
+  color: red !important;
+}
+
+.DerajatMin {
+  font-size: 40px;
+  font-weight: 600;
+  color: red !important;
+}
